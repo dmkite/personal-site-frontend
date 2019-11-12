@@ -5,10 +5,10 @@ import Main from './components/Main.js'
 
 function App () {
   return (
-    <>
-      <Nav navItems={[]} />
+    <Fragment>
+      <Nav />
       <Main />
-    </>
+    </Fragment>
   )
 }
 

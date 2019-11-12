@@ -4,15 +4,33 @@
   margin: 0;
 }
 
-h1 {
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+p {
   padding:0 5vw; 
-  font: bold 3.6em/2em 'Roboto Mono', monospace;
+  font: normal 4vw/2em 'Roboto Mono', monospace;
+}
+
+h1, h2, h3 {
+  padding:0 5vw; 
+  font: bold 10vw/2em 'Roboto Mono', monospace;
+}
+
+h2{
+  font-size: 7vw;
+}
+
+h3 {
+  font-size: 5vw;
 }
 
 nav{
   height:10vh;
   position: relative;
-
 }
 
 .top-brackets {
@@ -79,7 +97,7 @@ nav button {
   position:absolute;; 
   right:2vw;
   cursor:pointer;
-  z-index:10
+  z-index:1000
 }
 
 nav button:focus {
@@ -94,11 +112,47 @@ nav button:focus {
   position:absolute;
   right:0;
   animation: slideout .2s linear;
+  background-color:white;
+  z-index:100
+}
+
+.closed {
+  animation: slideIn .2s linear;
+  right: -60vw;
+}
+
+.menu ul {
+  margin-top:10vw;
+}
+
+.menu li{
+  list-style-type: none;
+  padding:5vw
+}
+
+.menu a {
+  color: black;
+  text-decoration:none;
+  font: normal 5vw/5vw 'Roboto Mono', monospace;
+}
+
+.menu .selected {
+  color:white;
+  background-color:black;
+}
+
+.menu .selected a {
+  color:white;
 }
 
 @keyframes slideout {
   0% {right: -60vw;}
   100% { right: 0;}
+}
+
+@keyframes slideIn {
+  0% { right: 0;}
+  100% {right: -60vw;}
 }
 
 main{
@@ -221,3 +275,20 @@ main{
 .modal h2, .modal h3, .modal p {
   margin: 0 3vw;
 }
+
+.svg {
+  width:33vw;
+}
+
+.specs {
+  display: flex;
+}
+
+.specs div {
+  width:66vw;
+}
+
+.specs p{
+  font: normal 3vw/1.6em 'Roboto Mono', monospace;
+}
+  
