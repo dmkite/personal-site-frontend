@@ -1,22 +1,295 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+p {
+  padding:0 5vw; 
+  font: normal 4vw/2em 'Roboto Mono', monospace;
+}
+
+h1, h2, h3 {
+  padding:0 5vw; 
+  font: bold 10vw/2em 'Roboto Mono', monospace;
+}
+
+h2{
+  font-size: 7vw;
+}
+
+h3 {
+  font-size: 5vw;
+}
+
+.top-brackets {
+  position:absolute;
+  top: 0;
+  width:100%;
+}
+
+.top-brackets:before {
+  content:'';
+  width: 3vw;
+  height:3vw;
+  position:absolute;
+  border-top:1px solid black;
+  border-left: 1px solid black;
+  left:1vw;
+  top:1vw;
+}
+
+.top-brackets:after {
+    content:'';
+  width: 3vw;
+  height:3vw;
+  position:absolute;
+  right:1vw;
+  top:1vw;
+  border-top:1px solid black;
+  border-right: 1px solid black;
+}
+
+.bottom-brackets {
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+
+.bottom-brackets:before {
+  content:'';
+  width: 3vw;
+  height:3vw;
+  position:absolute;
+  border-bottom:1px solid black;
+  border-left: 1px solid black;
+  left:1vw;
+  bottom:1vw;
+}
+
+.bottom-brackets:after {
+  content:'';
+  width: 3vw;
+  height:3vw;
+  position:absolute;
+  right:1vw;
+  bottom:1vw;
+  border-bottom:1px solid black;
+  border-right: 1px solid black;
+}
+
+nav{
+  height:10vh;
+  position: relative;
+}
+
+nav button {
+  background-color:transparent;
+  border: none;
+  font-size:15vw;
+  height:10vh;
+  line-height: 10vh;
+  position:absolute;; 
+  right:2vw;
+  cursor:pointer;
+  z-index:1000
+}
+
+nav button:focus {
+  outline: none;
+}
+
+.menu {
+  height:100vh;
+  width: 60vw;
+  background-color:white;
+  border-left: 1vw solid black;
+  position:absolute;
+  right:0;
+  animation: slideout .2s linear;
+  background-color:white;
+  z-index:100
+}
+
+.closed {
+  animation: slideIn .2s linear;
+  right: -60vw;
+}
+
+.menu ul {
+  margin-top:10vw;
+}
+
+.menu li{
+  list-style-type: none;
+  padding:5vw
+}
+
+.menu a {
+  color: black;
+  text-decoration:none;
+  font: normal 5vw/5vw 'Roboto Mono', monospace;
+}
+
+.menu .selected {
+  color:white;
+  background-color:black;
+}
+
+.menu .selected a {
+  color:white;
+}
+
+@keyframes slideout {
+  0% {right: -60vw;}
+  100% { right: 0;}
+}
+
+@keyframes slideIn {
+  0% { right: 0;}
+  100% {right: -60vw;}
+}
+
+main{
+  position:relative;
+  min-height:90vh;
+  outline:1px dotted green;
+}
+
+.thumbnail{
+  height:15vw;
+  width:15vw;
+  position:relative;
+}
+
+.thumbnail:before, .thumbnail:after{
+  content: '';
+  position:absolute;
+  height:15vw;
+  width:4vw;
+  border: 4vw solid black;
+  border-right:none;
+  left:-4vw;
+  top:-4vw;
+  z-index:10
+}
+
+.thumbnail img{
+  filter: grayscale(100%) contrast(150%);
+  position: fixed; /* for clip property*/
+}
+
+.thumbnail img:hover{
+  /* filter: grayscale(0%) contrast(100%); */
+  cursor:pointer;
+}
+
+.thumbnail:after{
+  border: 4vw solid black;
+  border-left:none;
+  right:-4vw;
+  left: auto;
+}
+
+.portrait {
+  width: 15vw;
+}
+
+.landscape {
+  height:100%;
+}
+
+.top {
+  clip: rect(-15vw, 15vw, 15vw, 0vw)
+}
+
+.center {
+  clip: rect(0px, 15vw, 15vw, 0px)
+}
+
+.gallery {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  margin: 5vw 10vw;
 }
 
-.App-link {
-  color: #09d3ac;
+.modal {
+  height:100vh;
+  width:100vw;
+  position: absolute;
+  top:-10vh;
+  background-color: black;
+  z-index:100;
+  color:white;
 }
+
+.modal button {
+  position:absolute;
+  height:10vw;
+  width:10vw;
+  top: 5vw;
+  right:5vw;
+  font: bold 2.4em/8vw 'Roboto Mono', monospace;
+  background-color: transparent;
+  border:none;
+  color:white;
+}
+
+.modal button:before, .modal button:after {
+  content: '';
+  position:absolute;
+  height:10vw;
+  width:2vw;
+  border: 2vw solid white;
+  border-right:none;
+  left:-2vw;
+  top:-2vw;
+  z-index:10
+}
+
+.modal button:after {
+  left:auto;
+  right:-2vw;
+  border: 2vw solid white;
+  border-left:none;
+}
+
+.modal img {
+  max-width:94vw;
+  margin:0 3vw 5vw;
+
+}
+
+.modal-content{
+  margin-top: 20vw;
+  overflow:scroll;
+  height:calc(100vh - 20vw);
+  padding-bottom:5vw;
+}
+
+.modal h2, .modal h3, .modal p {
+  margin: 0 3vw;
+}
+
+.svg {
+  width:33vw;
+}
+
+.specs {
+  display: flex;
+}
+
+.specs div {
+  width:66vw;
+}
+
+.specs p{
+  font: normal 3vw/1.6em 'Roboto Mono', monospace;
+}
+  
