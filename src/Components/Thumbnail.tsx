@@ -3,15 +3,12 @@ import '../App.css'
 import { ModalProps } from './Modal'
 
 const Thumbnail: React.FC<ModalProps> = (props: ModalProps) => {
-  const {galleryItem: {width, height, clip_type, url, title}} = props
-  const setClassAndClip = () => width > height
-    ? `landscape ${clip_type}`
-    : `portrait ${clip_type}`
+  const {galleryItem: {thumbnail, title}} = props
 
   return (
     <div className='thumbnail' 
       onClick={() => props.select(props.galleryItem)}>
-      <img className={setClassAndClip()} src={url} alt={title} />
+      <img src={thumbnail} alt={title} />
     </div>
   )
 }

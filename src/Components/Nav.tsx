@@ -37,6 +37,9 @@ const Nav = (props: any) => {
           <li className={setSelectStatus('/gallery')}>
             <Link to='/gallery'>Gallery</Link>
           </li>
+          <li className={setSelectStatus('/contact')}>
+            <Link to='/contact'>Contact</Link>
+          </li>
         </ul>
       </div>
     </nav>

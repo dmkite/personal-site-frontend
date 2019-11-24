@@ -3,22 +3,13 @@ import Thumbnail from './Thumbnail'
 import Modal from './Modal'
 import useAxios from 'axios-hooks'
 
-
-enum Clip_type {
-  'top',
-  'center',
-  'bottom',
-  'left',
-  'right'
-}
-
 export interface GalleryItem {
   title: string
   description: string
   height: number
   width: number
   url: string
-  clip_type: Clip_type
+  thumbnail: string
 }
 
 const Gallery: React.FC = () => {
@@ -27,7 +18,7 @@ const Gallery: React.FC = () => {
     data, 
     loading, 
     error 
-  }, refectch] = useAxios('https://dylankite.com/gallery')
+  }, refectch] = useAxios('https://dylankite.com/api/gallery')
 
   if (loading) return <div className='loading-spinner' />
   if (error) return <p>{JSON.stringify(error)}</p>
