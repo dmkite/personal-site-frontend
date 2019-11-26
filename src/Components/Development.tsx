@@ -32,28 +32,13 @@ const Development: React.FC = () => {
     ],
     title: 'Kidogo Mobile App',
     desc: [
-      { purpose: 'blah blah' },
-      { architecture: '123' },
-      { impact: 'abc' }
+      { purpose: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent eu sodales elit. Nulla gravida sem vel luctus faucibus. Fusce eleifend fermentum consequat.' },
+      { architecture: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent eu sodales elit. Nulla gravida sem vel luctus faucibus. Fusce eleifend fermentum consequat.' },
+      { impact: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent eu sodales elit. Nulla gravida sem vel luctus faucibus. Fusce eleifend fermentum consequat.' }
     ],
     svg: ''
   }
   ]
-  /**
-   * Data shape:
-   *  specs: {
-   * title
-   * framwork
-   * platfrom
-   * persistence
-   * users
-   *}
-    svg
-    desc: [
-    
-    ]
-    {title: content}
-   */
   return (
     <Fragment>
       <h1>Development</h1>
@@ -78,7 +63,7 @@ const Development: React.FC = () => {
             {desc.map((d: DescType, i: number) => {
               const [key]: string[] = Object.keys(d)
               const val: string = d[key]
-              return <div>
+              return <div key={i}>
                 <h3>{key}</h3>
                 <p>{val}</p>
               </div>

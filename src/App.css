@@ -213,8 +213,7 @@ main{
 }
 
 .thumbnail img{
-  filter: grayscale(100%) contrast(150%);
-  position: fixed; /* for clip property*/
+  width:15vw;
 }
 
 .thumbnail img:hover{
@@ -315,6 +314,8 @@ main{
 
 .specs {
   display: flex;
+  position: relative;
+  width: 100vw;
 }
 
 .specs div {
