@@ -29,16 +29,16 @@ const Nav = (props: any) => {
       <div className={applyAnimation()}>
         <ul>
           <li className={setSelectStatus('/')}>
-            <Link to='/'>Home</Link>
+            <Link onClick={() => toggleOpen(false)} to='/'>Home</Link>
           </li>
           <li className={setSelectStatus('/development')}>
-            <Link to='/development'>Development</Link>
+            <Link onClick={() => toggleOpen(false)} to='/development'>Development</Link>
           </li>
           <li className={setSelectStatus('/gallery')}>
-            <Link to='/gallery'>Gallery</Link>
+            <Link onClick={() => toggleOpen(false)} to='/gallery'>Gallery</Link>
           </li>
           <li className={setSelectStatus('/contact')}>
-            <Link to='/contact'>Contact</Link>
+            <Link onClick={() => toggleOpen(false)} to='/contact'>Contact</Link>
           </li>
         </ul>
       </div>

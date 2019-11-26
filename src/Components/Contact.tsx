@@ -12,17 +12,22 @@ const Contact = () => {
     status: 'unsubmitted',
     text: 'submit'
   })
+  const [ error, setErrorMessage ] = useState<string | null>(null)
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     changeSubmitStatus({status: 'submitting', text: '...'})
-    axios.post(`${config.serverUrl}/api/contact`, formData)
+    const token: string | null = localStorage.getItem('form-token')
+    axios.post(`${config.serverUrl}/api/contact`, {...formData, token})
       .then(res => {
         changeSubmitStatus({status: 'submitSuccess', text: 'success'})
+        localStorage.setItem('form-token', res.data.token)
         console.log(res)
       })
       .catch(err => {
         changeSubmitStatus({status: 'submitFailure', text:'failure'})
+        if(err.response.status === 429) setErrorMessage(err.response.data.message)
+        
         console.warn(err)
       })
 
@@ -36,6 +41,7 @@ const Contact = () => {
 
   return (
     <Fragment>
+      {console.log(error)}
       <h1>Contact</h1>
       <p>Let's Chat.</p>
       <form onSubmit={(e: FormEvent) => handleSubmit(e)}>
@@ -72,6 +78,7 @@ const Contact = () => {
           className={submitStatus.status} 
           type="submit">{submitStatus.text}</button>
       </form>
+      {error && <div className="error">{error}</div>}
     </Fragment>
   )
 }
