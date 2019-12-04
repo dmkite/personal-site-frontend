@@ -6,8 +6,8 @@ import Main from './Components/Main'
 const App: React.FC = () => {
   return (
     <Fragment>
-      <Nav />
-      <Main />
+        <Nav />
+        <Main />
     </Fragment>
   );
 }

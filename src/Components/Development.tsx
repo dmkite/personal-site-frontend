@@ -1,11 +1,5 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { ReactComponent as Android } from '../assets/android.svg'
-
-enum status {
-  'production',
-  'user testing',
-  'development'
-}
 
 interface SpecType {
   [key:string]: string
@@ -40,7 +34,7 @@ const Development: React.FC = () => {
   }
   ]
   return (
-    <Fragment>
+    <div className="content">
       <h1>Development</h1>
       {data.map(({ specs, svg, desc, title }, i) => (
         <section key={i}>
@@ -74,7 +68,7 @@ const Development: React.FC = () => {
           </div>
         </section>
       ))}
-    </Fragment>
+    </div>
   )
 }
 
