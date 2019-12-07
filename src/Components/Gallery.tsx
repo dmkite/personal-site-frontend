@@ -5,7 +5,7 @@ import useAxios from 'axios-hooks'
 import config from '../config'
 import Loading from '../Components/Loading'
 
-export interface GalleryItem {
+export interface IGalleryItem {
   title: string
   description: string
   height: number
@@ -14,8 +14,8 @@ export interface GalleryItem {
   thumbnail: string
 }
 
-const Gallery: React.FC = () => {
-  const [selected, select] = useState<GalleryItem | null>(null)
+const Gallery = ():JSX.Element => {
+  const [selected, select] = useState<IGalleryItem | null>(null)
   const [{ 
     data, 
     loading, 
@@ -36,7 +36,7 @@ const Gallery: React.FC = () => {
     <div className="content">
       {staticContent}
       <div className='gallery'>
-        {data.map((d: GalleryItem, i: number) => {
+        {data.map((d: IGalleryItem, i: number) => {
           return <Thumbnail key={i} galleryItem={d} select={select} />
         }
         )}

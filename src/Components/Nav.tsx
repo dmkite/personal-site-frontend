@@ -3,16 +3,16 @@ import { withRouter, Link } from 'react-router-dom'
 import { ReactComponent as Bar } from '../assets/Bar.svg'
 
 
-const Nav = (props: any) => {
+const Nav = (props: any): JSX.Element => {
   const [isOpen, toggleOpen] = useState<boolean | null>(null)
-  const [openStatus, changeOpenStatus] = useState('closed')
+  const [openStatus, changeOpenStatus] = useState<String>('closed')
 
-  const setSelectStatus = (path: string) => props.location.pathname === path
+  const setSelectStatus = (path: string):string => props.location.pathname === path
     ? 'selected'
     : ''
 
 
-  const applyAnimation = () => {
+  const applyAnimation = ():string => {
     if (isOpen === null) {
       return 'menu closed'
     } else if (isOpen) {
@@ -31,7 +31,7 @@ const Nav = (props: any) => {
     }
   }
 
-  const handleLinkSelect = () => {
+  const handleLinkSelect = ():void => {
     changeOpenStatus('closing closed')
     toggleOpen(false)
   }

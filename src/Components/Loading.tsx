@@ -1,8 +1,8 @@
 import React, {useState, useEffect, Fragment} from 'react'
 
-const Loading = () => {
-  const [dots, addDots] = useState('')
-  useEffect(() => {
+const Loading:React.FC = ():JSX.Element => {
+  const [dots, addDots] = useState<string>('')
+  useEffect(():void => {
     if(dots.length === 4) {
       setTimeout(() => {
         addDots('')
