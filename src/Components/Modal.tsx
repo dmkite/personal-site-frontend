@@ -1,13 +1,12 @@
 import React from 'react'
-import {GalleryItem} from './Gallery'
+import {IGalleryItem} from './Gallery'
 
-export interface ModalProps{
-  galleryItem: GalleryItem
-  select(arg: null | GalleryItem): void
+export interface IModalProps{
+  galleryItem: IGalleryItem
+  select(arg: null | IGalleryItem): void
 }
 
-const Modal = (props: ModalProps) => {
-  console.log(props)
+const Modal = (props: IModalProps):JSX.Element => {
   const {galleryItem : {image, title, width, height, description}} = props
   return (
     <div className='modal'>

@@ -4,7 +4,7 @@ import Gallery from '../Components/Gallery'
 import Development from '../Components/Development'
 import Contact from '../Components/Contact'
 
-const Main = () => {
+const Main:React.FC = ():JSX.Element => {
   return (
     <main>
       <div className='top-brackets' />

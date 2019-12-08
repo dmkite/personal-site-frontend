@@ -1,8 +1,8 @@
 import React from 'react'
 import '../App.css'
-import { ModalProps } from './Modal'
+import { IModalProps } from './Modal'
 
-const Thumbnail: React.FC<ModalProps> = (props: ModalProps) => {
+const Thumbnail = (props: IModalProps):JSX.Element => {
   const {galleryItem: {thumbnail, title}} = props
 
   return (

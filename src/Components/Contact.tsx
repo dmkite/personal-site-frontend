@@ -2,19 +2,31 @@ import React, {useState, FormEvent, ChangeEvent, Fragment} from 'react'
 import axios from 'axios'
 import config from '../config'
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
+interface IFormData {
+  name: string
+  email: string
+  message: string
+}
+
+interface ISubmitStatus {
+  status: string
+  text: string
+}
+
+const Contact = ():JSX.Element => {
+  const [formData, setFormData] = useState<IFormData>({
     name: '',
     email: '',
     message: ''
   })
-  const [submitStatus, changeSubmitStatus] = useState({
+
+  const [submitStatus, changeSubmitStatus] = useState<ISubmitStatus>({
     status: 'unsubmitted',
     text: 'submit'
   })
   const [ error, setErrorMessage ] = useState<string | null>(null)
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e:FormEvent<HTMLFormElement>):void => {
     e.preventDefault()
     changeSubmitStatus({status: 'submitting', text: '...'})
     const token: string | null = localStorage.getItem('form-token')
@@ -33,7 +45,7 @@ const Contact = () => {
 
   }
   
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>):void => {
     const key: string = e.target.id
     const val: string = e.target.value
     setFormData({...formData, [key]: val})
@@ -41,10 +53,9 @@ const Contact = () => {
 
   return (
     <Fragment>
-      {console.log(error)}
       <h1>Contact</h1>
       <p>Let's Chat.</p>
-      <form onSubmit={(e: FormEvent) => handleSubmit(e)}>
+      <form onSubmit={(e:FormEvent<HTMLFormElement>) => handleSubmit(e)}>
         <label htmlFor="name">Name:</label>
         <input 
           required 

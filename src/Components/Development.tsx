@@ -1,22 +1,22 @@
 import React from 'react'
 import { ReactComponent as Android } from '../assets/android.svg'
 
-interface SpecType {
+interface ISpecType {
   [key:string]: string
 }
 
-interface DescType {
+interface IDescType {
   [key: string]: string
 }
 
-interface ProjectData {
-  specs: SpecType[]
+interface IProjectData {
+  specs: ISpecType[]
   title: string
-  desc: DescType[]
+  desc: IDescType[]
   svg: string
 }
-const Development: React.FC = () => {
-  const data: ProjectData[] = [{
+const Development = ():JSX.Element => {
+  const data: IProjectData[] = [{
     specs: [
       { title: 'Kidogo Mobile App' },
       { framework: 'React Native' },
@@ -36,13 +36,13 @@ const Development: React.FC = () => {
   return (
     <div className="content">
       <h1>Development</h1>
-      {data.map(({ specs, svg, desc, title }, i) => (
+      {data.map(({ specs, svg, desc, title }, i:number) => (
         <section key={i}>
           <h2>{title}</h2>
           <div className="specs">
             <Android className="svg" />
             <div>
-              {specs.map((s: SpecType, i: number) => {
+              {specs.map((s: ISpecType, i: number) => {
                 let elipses: string = ''
                 const [key]: string[] = Object.keys(s)
                 const val: string = s[key]
@@ -54,7 +54,7 @@ const Development: React.FC = () => {
             </div>
           </div>
           <div>
-            {desc.map((d: DescType, i: number) => {
+            {desc.map((d: IDescType, i: number) => {
               const [key]: string[] = Object.keys(d)
               const val: string = d[key]
               return <div key={i}>
