@@ -280,6 +280,9 @@ main{
   width: 0;
 }
 
+/*------------ Home ----------*/
+
+
 /*---------- Gallery ---------*/
 .thumbnail{
   height:23vw;
@@ -406,18 +409,41 @@ form{
   padding:4vw
 }
 
+.input-field{
+  position:relative;
+  height:12vw;
+  margin-bottom:10vw;
+}
+
+.input-field:nth-of-type(3) {
+  height:20vw;
+}
+
 label {
-  font: bold 5vw/1.6em 'Roboto Mono', monospace;
+  position:absolute;
+  font: bold 4vw/1.6em 'Roboto Mono', monospace;
   display:block;
+  background-color:white;
+  z-index: 1;
+  top: -4vw;
+  left: 5vw;
+  padding: 1vw;
+
 }
 
 input, textarea {
+  bottom: 0;
+  position: absolute;
   width: 100%;
-  margin-bottom:4vw;
-  height: 10vw;
-  border: none;
-  border-bottom:1vw solid black;
-  font: normal 3vw/1.6em 'Roboto Mono', monospace;
+  height: 12vw;
+  border: 1vw solid #333;
+  font: normal 5vw/1.6em 'Roboto Mono', monospace;
+  padding: 2vw 1vw 0;
+  border-radius:2px
+}
+
+textarea {
+  height:20vw;
 }
 
 input:focus, textarea:focus {
@@ -431,6 +457,7 @@ form button {
   border:1vw solid black;
   font: bold 5vw/1.6em 'Roboto Mono', monospace;
   width:18vw;
+  border-radius:2px;
 }
 
 button.submitting {
@@ -475,13 +502,11 @@ button.submitFailure, button.submitSuccess {
   position:fixed;
   top: 0;
   left:0;
-
   z-index:10000;
   text-align:center;
   font-size:3em;
   padding-top: 50vh;
 }
-
 
 main {
   max-width: 1024px;
@@ -497,6 +522,3 @@ main {
   z-index:1000;
   filter: blur(.25em);
 }
-
-
-

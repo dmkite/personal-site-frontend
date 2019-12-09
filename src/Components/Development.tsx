@@ -15,6 +15,7 @@ interface IProjectData {
   desc: IDescType[]
   svg: string
 }
+
 const Development = ():JSX.Element => {
   const data: IProjectData[] = [{
     specs: [
