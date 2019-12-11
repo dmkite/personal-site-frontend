@@ -53,12 +53,16 @@ const Nav = (props: any): JSX.Element => {
           <li className={setSelectStatus('/development')}>
             <Link onClick={handleLinkSelect} to='/development'>Development</Link>
           </li>
+          <li className={setSelectStatus('/design')}>
+            <Link onClick={handleLinkSelect} to='/design'>Design</Link>
+          </li>
           <li className={setSelectStatus('/gallery')}>
             <Link onClick={handleLinkSelect} to='/gallery'>Gallery</Link>
           </li>
           <li className={setSelectStatus('/contact')}>
             <Link onClick={handleLinkSelect} to='/contact'>Contact</Link>
           </li>
+
         </ul>
       </div>
     </nav>
