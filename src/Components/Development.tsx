@@ -1,52 +1,63 @@
 import React from 'react'
 import { ReactComponent as Android } from '../assets/android.svg'
+import {ReactComponent as Windows} from '../assets/windows.svg'
+import { ReactComponent as Web } from '../assets/web.svg'
+import {ReactComponent as IOS} from '../assets/iOS.svg'
+import useAxios from 'axios-hooks'
+import Loading from './Loading'
+import config from '../config'
 
-interface ISpecType {
-  [key:string]: string
-}
-
-interface IDescType {
-  [key: string]: string
+interface IKeyVal {
+  [key: string]: string | number
 }
 
 interface IProjectData {
-  specs: ISpecType[]
+  specs: IKeyVal[]
   title: string
-  desc: IDescType[]
+  desc: IKeyVal[]
   svg: string
 }
 
-const Development = ():JSX.Element => {
-  const data: IProjectData[] = [{
-    specs: [
-      { title: 'Kidogo Mobile App' },
-      { framework: 'React Native' },
-      { platform: 'Android' },
-      { persistence: 'Dynamo DB' },
-      { status: 'user testing' }
-    ],
-    title: 'Kidogo Mobile App',
-    desc: [
-      { purpose: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent eu sodales elit. Nulla gravida sem vel luctus faucibus. Fusce eleifend fermentum consequat.' },
-      { architecture: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent eu sodales elit. Nulla gravida sem vel luctus faucibus. Fusce eleifend fermentum consequat.' },
-      { impact: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent eu sodales elit. Nulla gravida sem vel luctus faucibus. Fusce eleifend fermentum consequat.' }
-    ],
-    svg: ''
+interface ISvgMapper {
+  [key:string]: JSX.Element
+  android: JSX.Element
+  windows: JSX.Element
+  web: JSX.Element
+  iOS: JSX.Element
+}
+const svgMapper: ISvgMapper = {
+  android: <Android className="svg"/>,
+  windows: <Windows className="svg"/>,
+  web: <Web className="svg"/>,
+  iOS: <IOS className="svg"/>
+}
+const Development = (): JSX.Element => {
+  const [{
+    data,
+    loading,
+    error
+  }, refectch] = useAxios(`${config.serverUrl}/api/projects`)
+  if (loading) {
+    return <Loading />
   }
-  ]
+  if (error) {
+    console.log(error)
+    return <div>:[ something went wrong.</div>
+  }
   return (
     <div className="content">
       <h1>Development</h1>
-      {data.map(({ specs, svg, desc, title }, i:number) => (
-        <section key={i}>
+      {data.map((d: IProjectData, i: number) => {
+        const { specs, svg, desc, title } = d
+        return <section key={i}>
           <h2>{title}</h2>
           <div className="specs">
-            <Android className="svg" />
+            {svgMapper[svg]}
             <div>
-              {specs.map((s: ISpecType, i: number) => {
+              {specs.map((s: IKeyVal, i: number) => {
                 let elipses: string = ''
                 const [key]: string[] = Object.keys(s)
-                const val: string = s[key]
+                const val: string = String(s[key]) //typecast for numbers
                 while (elipses.length + key.length + val.length < 30) {
                   elipses += '.'
                 }
@@ -55,9 +66,9 @@ const Development = ():JSX.Element => {
             </div>
           </div>
           <div>
-            {desc.map((d: IDescType, i: number) => {
+            {desc.map((d: IKeyVal, i: number) => {
               const [key]: string[] = Object.keys(d)
-              const val: string = d[key]
+              const val: string | number = d[key]
               return <div key={i}>
                 <h3>{key}</h3>
                 <p>{val}</p>
@@ -68,7 +79,8 @@ const Development = ():JSX.Element => {
 
           </div>
         </section>
-      ))}
+      })
+      }
     </div>
   )
 }
