@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  color: #333
 }
 
 body {
@@ -59,8 +60,8 @@ h3 {
   width: 2vw;
   height:2vw;
   position:absolute;
-  border-top:1px solid black;
-  border-left: 1px solid black;
+  border-top:1px solid #333;
+  border-left: 1px solid #333;
   left:1vw;
   top:1vw;
 }
@@ -72,8 +73,8 @@ h3 {
   position:absolute;
   right:1vw;
   top:1vw;
-  border-top:1px solid black;
-  border-right: 1px solid black;
+  border-top:1px solid #333;
+  border-right: 1px solid #333;
 }
 
 .bottom-brackets {
@@ -87,8 +88,8 @@ h3 {
   width: 2vw;
   height:2vw;
   position:absolute;
-  border-bottom:1px solid black;
-  border-left: 1px solid black;
+  border-bottom:1px solid #333;
+  border-left: 1px solid #333;
   left:1vw;
   bottom:1vw;
 }
@@ -100,8 +101,8 @@ h3 {
   position:absolute;
   right:1vw;
   bottom:1vw;
-  border-bottom:1px solid black;
-  border-right: 1px solid black;
+  border-bottom:1px solid #333;
+  border-right: 1px solid #333;
 }
 
 nav {
@@ -118,7 +119,7 @@ nav {
   height:100vh;
   width: 60vw;
   background-color:white;
-  border-left: 1vw solid black;
+  border-left: 1vw solid #333;
   position:absolute;
   right:0;
   animation: slideout .2s linear;
@@ -141,14 +142,14 @@ nav {
 }
 
 .menu a {
-  color: black;
+  color: #333;
   text-decoration:none;
   font: normal 5vw/5vw 'Roboto Mono', monospace;
 }
 
 .menu .selected {
   color:white;
-  background-color:black;
+  background-color:#333;
 }
 
 .menu .selected a {
@@ -238,7 +239,6 @@ nav {
   }
 }
 
-
 @keyframes closing {
   0%{
     transform: rotate(45deg);
@@ -280,14 +280,13 @@ main{
   width: 0;
 }
 
-/*------------ Home ----------*/
-
-
-/*---------- Gallery ---------*/
+/*=============================================================================
+  Gallery
+=============================================================================*/
 .thumbnail{
   height:23vw;
   width:23vw;
-  background-color:black;
+  background-color:#333;
   position: relative;
   margin-bottom: 3vw;
 }
@@ -334,7 +333,7 @@ main{
   width:100vw;
   position: fixed;
   top:0;
-  background-color: black;
+  background-color: #333;
   z-index:1000;
   color:white;
 }
@@ -404,7 +403,9 @@ main{
   font: normal 3vw/1.6em 'Roboto Mono', monospace;
 }
 
-/*------------------- Contact -------------------*/
+/*=============================================================================
+  Contact
+=============================================================================*/
 form{
   padding:4vw
 }
@@ -454,14 +455,14 @@ form button {
   box-sizing: content-box;
   padding: 3vw;
   background-color: transparent;
-  border:1vw solid black;
+  border:1vw solid #333;
   font: bold 5vw/1.6em 'Roboto Mono', monospace;
   width:18vw;
   border-radius:2px;
 }
 
 button.submitting {
-  background-color: black;
+  background-color: #333;
   color:white;
   width:10vw;
   animation: shrink .2s linear;
@@ -470,7 +471,7 @@ button.submitting {
 button.submitFailure, button.submitSuccess {
   width: calc(100% - 8vw);
   color: white;
-  background-color: black;
+  background-color: #333;
   animation: grow .2s linear;
 }
 
@@ -494,9 +495,10 @@ button.submitFailure, button.submitSuccess {
   }
 }
 
-/*------ Loading ------*/
+/*=============================================================================
+  Loading
+=============================================================================*/
 .loading{
-  outline:1px solid red;
   height:100vh;
   width:100vw;
   position:fixed;
@@ -521,4 +523,30 @@ main {
   left: 0;
   z-index:1000;
   filter: blur(.25em);
+}
+
+/*=============================================================================
+  Development
+=============================================================================*/
+.details-button{
+  height: 10vw;
+  width: 10vw;
+  font-size:5vw;
+
+  margin-left: 4vw;
+  position: relative;
+}
+
+.details-button:after {
+  content: '';
+  position: absolute;
+  width: calc(100vw - 18vw);
+  height: 0.5vw;
+  background-color: #333;
+  top: 4vw;
+  left: 11vw;
+}
+
+.hidden-details {
+  display: none;
 }
