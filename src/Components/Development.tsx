@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import useAxios from 'axios-hooks'
 import Loading from './Loading'
 import config from '../config'
@@ -25,10 +25,10 @@ const Development = (): JSX.Element => {
     return <div>:[ something went wrong.</div>
   }
   return (
-    <div className="content">
+    <Fragment>
       <h1>Development</h1>
       {data.map((d: IProjectData, i: number) => <Project key={i} {...d}/>)}
-    </div>
+    </Fragment>
   )
 }
 

@@ -38,13 +38,13 @@ const Nav = (props: any): JSX.Element => {
 
   return (
     <nav>
-      <div className='top-brackets' />
+      {/* <div className='top-brackets' /> */}
       <div onClick={handleClick} className={`nav-icon ${openStatus}`}>
         <Bar />
         <Bar />
         <Bar />
       </div>
-      <div className='bottom-brackets' />
+      {/* <div className='bottom-brackets' /> */}
       <div className={applyAnimation()}>
         <ul>
           <li className={setSelectStatus('/')}>

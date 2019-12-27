@@ -12,16 +12,16 @@ body {
 }
 
 p {
-  padding:0 5vw; 
+  padding: 0 5vw;
   font: normal 4vw/2em 'Roboto Mono', monospace;
 }
 
 h1, h2, h3 {
-  padding:0 5vw; 
+  padding: 0 5vw;
   font: bold 10vw/2em 'Roboto Mono', monospace;
 }
 
-h2{
+h2 {
   font-size: 7vw;
 }
 
@@ -30,101 +30,101 @@ h3 {
 }
 
 .loading-spinner {
-  height:100vh;
-  width:100vw;
-  position:absolute;
-  top:0;
-  left:0;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .loading-spinner::after {
   content: '...';
-  width:50vw;
-  height:50vh;
-  line-height:50vh;
-  font-size:10vw;
-  text-align:center;
-  position:absolute;
-  left:25vw;
-  top:25vh;
+  width: 50vw;
+  height: 50vh;
+  line-height: 50vh;
+  font-size: 10vw;
+  text-align: center;
+  position: absolute;
+  left: 25vw;
+  top: 25vh;
 }
 
 .top-brackets {
-  position:absolute;
-  top: 0;
-  width:100%;
+  position: absolute;
+  top: 5vw;
+  width: 100%;
 }
 
 .top-brackets:before {
-  content:'';
+  content: '';
   width: 2vw;
-  height:2vw;
-  position:absolute;
-  border-top:1px solid #333;
+  height: 2vw;
+  position: absolute;
+  border-top: 1px solid #333;
   border-left: 1px solid #333;
-  left:1vw;
-  top:1vw;
+  left: 1vw;
+  top: 1vw;
 }
 
 .top-brackets:after {
-  content:'';
+  content: '';
   width: 2vw;
-  height:2vw;
-  position:absolute;
-  right:1vw;
-  top:1vw;
-  border-top:1px solid #333;
+  height: 2vw;
+  position: absolute;
+  right: 1vw;
+  top: 1vw;
+  border-top: 1px solid #333;
   border-right: 1px solid #333;
 }
 
 .bottom-brackets {
-  position:absolute;
-  bottom:0;
-  width:100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .bottom-brackets:before {
-  content:'';
+  content: '';
   width: 2vw;
-  height:2vw;
-  position:absolute;
-  border-bottom:1px solid #333;
+  height: 2vw;
+  position: absolute;
+  border-bottom: 1px solid #333;
   border-left: 1px solid #333;
-  left:1vw;
-  bottom:1vw;
+  left: 1vw;
+  bottom: 1vw;
 }
 
 .bottom-brackets:after {
-  content:'';
+  content: '';
   width: 2vw;
-  height:2vw;
-  position:absolute;
-  right:1vw;
-  bottom:1vw;
-  border-bottom:1px solid #333;
+  height: 2vw;
+  position: absolute;
+  right: 1vw;
+  bottom: 1vw;
+  border-bottom: 1px solid #333;
   border-right: 1px solid #333;
 }
 
 nav {
-  height:12vh;
+  height: 12vh;
   position: fixed;
-  top:0; 
-  left:0;
-  width:100vw;
+  top: 0;
+  left: 0;
+  width: 100vw;
   background-color: white;
   z-index: 10;
 }
 
 .menu {
-  height:100vh;
+  height: 100vh;
   width: 60vw;
-  background-color:white;
+  background-color: white;
   border-left: 1vw solid #333;
-  position:absolute;
-  right:0;
+  position: absolute;
+  right: 0;
   animation: slideout .2s linear;
-  background-color:white;
-  z-index:10
+  background-color: white;
+  z-index: 10
 }
 
 .closed {
@@ -133,37 +133,45 @@ nav {
 }
 
 .menu ul {
-  margin-top:14vh;
+  margin-top: 14vh;
 }
 
-.menu li{
+.menu li {
   list-style-type: none;
-  padding:5vw
+  padding: 5vw
 }
 
 .menu a {
   color: #333;
-  text-decoration:none;
+  text-decoration: none;
   font: normal 5vw/5vw 'Roboto Mono', monospace;
 }
 
 .menu .selected {
-  color:white;
-  background-color:#333;
+  color: white;
+  background-color: #333;
 }
 
 .menu .selected a {
-  color:white;
+  color: white;
 }
 
 @keyframes slideout {
-  0% {right: -60vw;}
-  100% { right: 0;}
+  0% {
+    right: -60vw;
+  }
+  100% {
+    right: 0;
+  }
 }
 
 @keyframes slideIn {
-  0% { right: 0;}
-  100% {right: -60vw;}
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -60vw;
+  }
 }
 
 .nav-icon {
@@ -190,7 +198,7 @@ nav {
 }
 
 .open svg {
-  transform:rotate(45deg);
+  transform: rotate(45deg);
   top: 35%;
 }
 
@@ -203,7 +211,7 @@ nav {
   animation: openingLeft .2s linear;
 }
 
-.opening svg:nth-of-type(1){
+.opening svg:nth-of-type(1) {
   animation: opening .2s linear;
 }
 
@@ -211,7 +219,7 @@ nav {
   animation: closingLeft .2s linear
 }
 
-.closing svg:nth-of-type(1){
+.closing svg:nth-of-type(1) {
   animation: closing .2s linear;
 }
 
@@ -220,50 +228,46 @@ nav {
     transform: rotate(0deg);
     top: 0;
   }
-
-  100%{
+  100% {
     transform: rotate(45deg);
     top: 35%;
   }
 }
 
-@keyframes openingLeft{
-    0% {
+@keyframes openingLeft {
+  0% {
     transform: rotate(0);
-    bottom:0;
+    bottom: 0;
   }
-
-  100%{
+  100% {
     transform: rotate(-45deg);
     bottom: 65%;
   }
 }
 
 @keyframes closing {
-  0%{
+  0% {
     transform: rotate(45deg);
     top: 35%;
   }
-  
   100% {
     transform: rotate(0deg);
     top: 0;
   }
 }
 
-@keyframes closingLeft{
-  0%{
+@keyframes closingLeft {
+  0% {
     transform: rotate(-45deg);
     bottom: 65%;
   }
-  
   100% {
     transform: rotate(0);
-    bottom:0;
+    bottom: 0;
   }
 }
 
-main{
+main {
   position: absolute;
   width: 100vw;
   height: 88vh;
@@ -272,7 +276,7 @@ main{
 }
 
 .content {
-  height:88vh;
+  height: 88vh;
   overflow-y: scroll;
 }
 
@@ -283,34 +287,35 @@ main{
 /*=============================================================================
   Gallery
 =============================================================================*/
-.thumbnail{
-  height:23vw;
-  width:23vw;
-  background-color:#333;
+
+.thumbnail {
+  height: 23vw;
+  width: 23vw;
+  background-color: #333;
   position: relative;
   margin-bottom: 3vw;
 }
 
-.thumbnail:before{
+.thumbnail:before {
   content: '';
-  width: 6vw; 
-  height:25vw;
-  position:absolute;
-  left: 8.5vw; 
+  width: 6vw;
+  height: 25vw;
+  position: absolute;
+  left: 8.5vw;
   top: -1vw;
-  background-color:white;
-  z-index:1
+  background-color: white;
+  z-index: 1
 }
 
-.thumbnail img{
-  width:15vw;
-  position:relative;
+.thumbnail img {
+  width: 15vw;
+  position: relative;
   margin: 4vw;
   z-index: 10
 }
 
-.thumbnail img:hover{
-  cursor:pointer;
+.thumbnail img:hover {
+  cursor: pointer;
 }
 
 .portrait {
@@ -318,67 +323,67 @@ main{
 }
 
 .landscape {
-  height:100%;
+  height: 100%;
 }
 
 .gallery {
   display: flex;
   justify-content: space-between;
-  margin: 5vw ;
+  margin: 5vw;
   flex-wrap: wrap;
 }
 
 .modal {
-  height:100vh;
-  width:100vw;
+  height: 100vh;
+  width: 100vw;
   position: fixed;
-  top:0;
+  top: 0;
   background-color: #333;
-  z-index:1000;
-  color:white;
+  z-index: 1000;
+  color: white;
 }
 
 .modal button {
-  position:absolute;
-  height:10vw;
-  width:10vw;
+  position: absolute;
+  height: 10vw;
+  width: 10vw;
   top: 5vw;
-  right:5vw;
+  right: 5vw;
   font: bold 2.4em/8vw 'Roboto Mono', monospace;
   background-color: transparent;
-  border:none;
-  color:white;
+  border: none;
+  color: white;
 }
 
 .modal button:before, .modal button:after {
   content: '';
-  position:absolute;
-  height:10vw;
-  width:2vw;
+  position: absolute;
+  height: 10vw;
+  width: 2vw;
   border: 2vw solid white;
-  border-right:none;
-  left:-2vw;
-  top:-2vw;
-  z-index:1000
+  border-right: none;
+  left: -2vw;
+  top: -2vw;
+  z-index: 1000
 }
 
 .modal button:after {
-  left:auto;
-  right:-2vw;
+  left: auto;
+  right: -2vw;
   border: 2vw solid white;
-  border-left:none;
+  border-left: none;
 }
 
 .modal img {
-  max-width:94vw;
-  margin:0 3vw 5vw;
+  max-width: 94vw;
+  margin: 0 3vw 5vw;
 }
 
-.modal-content{
+.modal-content {
   margin-top: 20vw;
-  overflow:scroll;
-  height:calc(100vh - 20vw);
-  padding-bottom:5vw;
+  overflow: scroll;
+  height: calc(100vh - 20vw);
+  padding-bottom: 5vw;
 }
 
 .modal h2, .modal h3, .modal p {
@@ -386,7 +391,7 @@ main{
 }
 
 .svg {
-  width:33vw;
+  width: 33vw;
 }
 
 .specs {
@@ -396,40 +401,40 @@ main{
 }
 
 .specs div {
-  width:66vw;
+  width: 66vw;
 }
 
-.specs p, label{
+.specs p, label {
   font: normal 3vw/1.6em 'Roboto Mono', monospace;
 }
 
 /*=============================================================================
   Contact
 =============================================================================*/
-form{
-  padding:4vw
+
+form {
+  padding: 4vw
 }
 
-.input-field{
-  position:relative;
-  height:12vw;
-  margin-bottom:10vw;
+.input-field {
+  position: relative;
+  height: 12vw;
+  margin-bottom: 10vw;
 }
 
 .input-field:nth-of-type(3) {
-  height:20vw;
+  height: 20vw;
 }
 
 label {
-  position:absolute;
+  position: absolute;
   font: bold 4vw/1.6em 'Roboto Mono', monospace;
-  display:block;
-  background-color:white;
+  display: block;
+  background-color: white;
   z-index: 1;
   top: -4vw;
   left: 5vw;
   padding: 1vw;
-
 }
 
 input, textarea {
@@ -440,11 +445,11 @@ input, textarea {
   border: 1vw solid #333;
   font: normal 5vw/1.6em 'Roboto Mono', monospace;
   padding: 2vw 1vw 0;
-  border-radius:2px
+  border-radius: 2px
 }
 
 textarea {
-  height:20vw;
+  height: 20vw;
 }
 
 input:focus, textarea:focus {
@@ -455,16 +460,16 @@ form button {
   box-sizing: content-box;
   padding: 3vw;
   background-color: transparent;
-  border:1vw solid #333;
+  border: 1vw solid #333;
   font: bold 5vw/1.6em 'Roboto Mono', monospace;
-  width:18vw;
-  border-radius:2px;
+  width: 18vw;
+  border-radius: 2px;
 }
 
 button.submitting {
   background-color: #333;
-  color:white;
-  width:10vw;
+  color: white;
+  width: 10vw;
   animation: shrink .2s linear;
 }
 
@@ -477,36 +482,35 @@ button.submitFailure, button.submitSuccess {
 
 @keyframes grow {
   0% {
-    width:10vw;
+    width: 10vw;
   }
-
   100% {
-    width:100%;
+    width: 100%;
   }
 }
 
-@keyframes shrink{
+@keyframes shrink {
   0% {
     width: 18vw;
   }
-
   100% {
-    width:10vw;
+    width: 10vw;
   }
 }
 
 /*=============================================================================
   Loading
 =============================================================================*/
-.loading{
-  height:100vh;
-  width:100vw;
-  position:fixed;
+
+.loading {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
   top: 0;
-  left:0;
-  z-index:10000;
-  text-align:center;
-  font-size:3em;
+  left: 0;
+  z-index: 10000;
+  text-align: center;
+  font-size: 3em;
   padding-top: 50vh;
 }
 
@@ -521,18 +525,18 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  z-index:1000;
+  z-index: 1000;
   filter: blur(.25em);
 }
 
 /*=============================================================================
   Development
 =============================================================================*/
-.details-button{
+
+.details-button {
   height: 10vw;
   width: 10vw;
-  font-size:5vw;
-
+  font-size: 5vw;
   margin-left: 4vw;
   position: relative;
 }
@@ -549,4 +553,96 @@ main {
 
 .hidden-details {
   display: none;
+}
+
+@media screen and (min-width: 599px) {
+  p {
+    font-size: 1.5vw;
+  }
+  h1 {
+    font-size: 4vw;
+  }
+  h2 {
+    font-size: 3vw;
+  }
+  h3 {
+    font-size: 2.5vw;
+  }
+  .content {
+    outline: 3px dashed purple;
+    max-width: 1024px;
+    margin: 11vw auto;
+    position: relative;
+  }
+  .top-brackets, .bottom-brackets {
+    max-width: 80vw;
+    width: 120%;
+    left: -10vw;
+    right: auto;
+    outline: 1px dotted orange
+  }
+  nav {
+    outline: 1px dotted red;
+    height: 10vw;
+    margin: 0 auto;
+  }
+  .menu {
+    width: 33vw;
+  }
+  .menu a {
+    font: normal 2vw/2vw 'Roboto Mono', monospace;
+  }
+  /*Gallery*/
+  .thumbnail {
+    width: 12vw;
+    height: 12vw;
+  }
+  .thumbnail:before {
+    content: '';
+    width: 5vw;
+    height: 12vw;
+    left: 3.5vw;
+    top: 0vw;
+  }
+  .thumbnail img {
+    width: 10vw;
+    position: relative;
+    margin: 1vw;
+    z-index: 10
+  }
+  .modal {
+    left: 0;
+  }
+  .modal button {
+    width: 3vw;
+    height: 3vw;
+    line-height: 3vw;
+  }
+  .modal button:before, .modal button:after {
+    height: 3vw;
+    width: 1vw;
+    border: 1vw solid white;
+    border-right: none;
+    left: -1vw;
+    top: -1vw;
+    z-index: 1000
+  }
+  .modal button:after {
+    left: auto;
+    right: -1vw;
+    border: 1vw solid white;
+    border-left: none;
+  }
+  .modal-content img {
+    max-width: 1000px;
+    max-height: 1000px;
+    margin: 0 auto;
+    width: 1000px;
+    height: 1000px;
+    outline: 1px solid red;
+  }
+  .modal-content h2, .modal-content h3, .modal-content p {
+    outline: 1px dotted purple;
+    color: white;
+  }
 }
