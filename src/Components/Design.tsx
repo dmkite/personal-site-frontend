@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
 const Design = () => {
     return (
-        <div>
-            
-        </div>
+        <Fragment>
+           <h1>Design</h1> 
+        </Fragment>
     )
 }
 

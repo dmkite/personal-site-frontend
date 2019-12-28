@@ -104,7 +104,9 @@ h3 {
   border-bottom: 1px solid #333;
   border-right: 1px solid #333;
 }
-
+/* 
+  Nav
+*/
 nav {
   height: 12vh;
   position: fixed;
@@ -276,7 +278,7 @@ main {
 }
 
 .content {
-  height: 88vh;
+  height: 89vh;
   overflow-y: scroll;
 }
 
@@ -284,6 +286,15 @@ main {
   width: 0;
 }
 
+/*=============================================================================
+  Home
+=============================================================================*/
+.profile-image {
+  width:66%;
+  position: absolute;
+  bottom: -1vw;
+  right: 0;
+}
 /*=============================================================================
   Gallery
 =============================================================================*/
@@ -450,6 +461,7 @@ input, textarea {
 
 textarea {
   height: 20vw;
+  resize: none;
 }
 
 input:focus, textarea:focus {
@@ -568,31 +580,84 @@ main {
   h3 {
     font-size: 2.5vw;
   }
-  .content {
-    outline: 3px dashed purple;
-    max-width: 1024px;
-    margin: 11vw auto;
-    position: relative;
-  }
   .top-brackets, .bottom-brackets {
     max-width: 80vw;
-    width: 120%;
-    left: -10vw;
+    left: 10vw;
     right: auto;
     outline: 1px dotted orange
   }
+  .top-brackets {
+    top: 10vw;
+  }
+  .top-brackets:nth-of-type(1) {
+    top: 1vw;
+  }
+  .top-brackets:before, .top-brackets:after, .bottom-brackets:before, .bottom-brackets:after {
+    width: 1vw;
+    height: 1vw;
+  }
+  .content {
+    outline: 3px dashed purple;
+    max-width: 1024px;
+    margin: 7vw auto;
+    position: relative;
+  }
+  /*===========================================================================
+    Nav
+  ===========================================================================*/
   nav {
-    outline: 1px dotted red;
-    height: 10vw;
+    height: 6vw;
+    max-width: 1024px;
+    outline: 1px solid red;
+    left: calc((100vw - 1024px) / 2);
     margin: 0 auto;
+  }
+  .nav-icon {
+    height:5vw;
+    width:6vw;
+    top: 0.5vw;
+    right: 0.5vw;
+    outline: 3px solid purple;
+  }
+  
+  @keyframes slideOut-fullscreen {
+    0% {
+      right: -66vw;
+    }
+    100% {
+      right: -33vw;
+    }
+  }
+  @keyframes slideIn-fullscreen {
+    0% {
+      right: -33vw;
+    }
+    100% {
+      right: -66vw;
+    }
   }
   .menu {
     width: 33vw;
+    border-left: 0.25vw solid #333;
+    right: -33vw;
+    animation: slideOut-fullscreen .2s linear;
+  }
+  .closed {
+    animation: slideIn-fullscreen .2s linear;
+    right: -66vw;
+  }
+  .menu ul {
+    margin-top: 0;
+  }
+  .menu li {
+    padding:2vw;
   }
   .menu a {
     font: normal 2vw/2vw 'Roboto Mono', monospace;
   }
-  /*Gallery*/
+  /*===========================================================================
+    Gallery
+  ===========================================================================*/
   .thumbnail {
     width: 12vw;
     height: 12vw;
@@ -644,5 +709,46 @@ main {
   .modal-content h2, .modal-content h3, .modal-content p {
     outline: 1px dotted purple;
     color: white;
+  }
+
+  /*
+    Contact
+  */
+  
+  .input-field {
+    height: 4vw;
+    margin-bottom: 3vw;
+  }
+  
+  .input-field:nth-of-type(3) {
+    height: 20vw;
+  }
+  
+  label {
+    font: bold 1.5vw/0vw 'Roboto Mono', monospace;
+    top: -1vw;
+    left: 1.5vw;
+  }
+  
+  input, textarea {
+    height: 4vw;
+    border: 0.25vw solid #333;
+    font: normal 2vw/4vw 'Roboto Mono', monospace;
+    padding: 0 0 0 1vw;
+  }
+
+  textarea {
+    height:20vw;
+  }
+  
+  form button {
+    padding: 0 1vw;
+    border: 0.25vw solid #333;
+    font: bold 2vw/4vw 'Roboto Mono', monospace;
+    width: 10vw;
+  }
+  
+  button.submitFailure, button.submitSuccess {
+    width: calc(100% - 2.5vw);
   }
 }

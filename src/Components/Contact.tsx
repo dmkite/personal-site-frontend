@@ -38,11 +38,9 @@ const Contact = (): JSX.Element => {
       })
       .catch(err => {
         changeSubmitStatus({ status: 'submitFailure', text: 'failure' })
-        if (err.response.status === 429) setErrorMessage(err.response.data.message)
-
+        err.response.status === 429 && setErrorMessage(err.response.data.message)
         console.warn(err)
       })
-
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {

@@ -6,12 +6,12 @@ import Main from './Components/Main'
 const App = (): JSX.Element => {
   return (
     <Fragment>
-      <div className='top-brackets' />
+      {/* <div className='top-brackets' /> */}
       <Nav />
-      <div className='bottom-brackets' />
-      <div className='top-brackets' />
+      {/* <div className='bottom-brackets' /> */}
+      {/* <div className='top-brackets' /> */}
       <Main />
-      <div className='bottom-brackets' />
+      {/* <div className='bottom-brackets' /> */}
     </Fragment>
   );
 }

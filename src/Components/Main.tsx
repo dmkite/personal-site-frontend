@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Gallery from '../Components/Gallery'
 import Development from '../Components/Development'

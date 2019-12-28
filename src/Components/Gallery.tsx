@@ -21,11 +21,16 @@ const Gallery = (): JSX.Element => {
     data,
     loading,
     error
-  }, refectch] = useAxios(`${config.serverUrl}/api/gallery`)
+  }] = useAxios(`${config.serverUrl}/api/gallery`)
 
   const staticContent = <Fragment>
     <h1>Gallery</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel elit nibh. Maecenas pulvinar neque quis posuere tincidunt. Aenean ac viverra diam. Vestibulum facilisis volutpat vehicula.</p>
+    <p>
+      Perhaps better described as analog graphic design than art, my body of
+      work is a dichotomous interplay between radiant, flamboyant technicolor
+      and flat monochrome. In each work splashes of color hint at a beautiful
+      reality beyond our own, igniting our primordial need to escape monotony.
+    </p>
   </Fragment>
 
 

@@ -16,7 +16,7 @@ const Development = (): JSX.Element => {
     data,
     loading,
     error
-  }, refectch] = useAxios(`${config.serverUrl}/api/projects`)
+  }] = useAxios(`${config.serverUrl}/api/projects`)
   if (loading) {
     return <Loading />
   }
