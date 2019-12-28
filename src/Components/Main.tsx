@@ -8,8 +8,8 @@ import Home from './Home'
 
 const Main:React.FC = ():JSX.Element => {
   return (
-    <main>
-      <div className='top-brackets' />
+    <div className="content">
+      {/* <div className='top-brackets' /> */}
       <Switch>
         <Route path='/development' component={Development} />
         <Route path ='/design' component= {Design}/>
@@ -17,8 +17,8 @@ const Main:React.FC = ():JSX.Element => {
         <Route path ='/contact' component= {Contact}/>
         <Route path='/' component={Home}/>
       </Switch>
-      <div className='bottom-brackets' />
-    </main>
+      {/* <div className='bottom-brackets' /> */}
+    </div>
   )
 }
 

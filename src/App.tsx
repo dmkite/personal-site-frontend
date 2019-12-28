@@ -1,13 +1,17 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import './App.css'
 import Nav from './Components/Nav'
 import Main from './Components/Main'
 
-const App = ():JSX.Element => {
+const App = (): JSX.Element => {
   return (
     <Fragment>
-        <Nav />
-        <Main />
+      {/* <div className='top-brackets' /> */}
+      <Nav />
+      {/* <div className='bottom-brackets' /> */}
+      {/* <div className='top-brackets' /> */}
+      <Main />
+      {/* <div className='bottom-brackets' /> */}
     </Fragment>
   );
 }

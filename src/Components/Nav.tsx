@@ -5,7 +5,7 @@ import { ReactComponent as Bar } from '../assets/Bar.svg'
 
 const Nav = (props: any): JSX.Element => {
   const [isOpen, toggleOpen] = useState<boolean | null>(null)
-  const [openStatus, changeOpenStatus] = useState<String>('closed')
+  const [openStatus, changeOpenStatus] = useState<String>('closing')
 
   const setSelectStatus = (path: string):string => props.location.pathname === path
     ? 'selected'
@@ -24,27 +24,25 @@ const Nav = (props: any): JSX.Element => {
 
   const handleClick = () => {
     toggleOpen(!isOpen)
-    if (openStatus.includes('closed')) {
+    if (openStatus.includes('closing')) {
       return changeOpenStatus('opening open')
     } else if (openStatus.includes('open')) {
-      return changeOpenStatus('closing closed')
+      return changeOpenStatus('closing')
     }
   }
 
   const handleLinkSelect = ():void => {
-    changeOpenStatus('closing closed')
+    changeOpenStatus('closing')
     toggleOpen(false)
   }
 
   return (
     <nav>
-      <div className='top-brackets' />
       <div onClick={handleClick} className={`nav-icon ${openStatus}`}>
         <Bar />
         <Bar />
         <Bar />
       </div>
-      <div className='bottom-brackets' />
       <div className={applyAnimation()}>
         <ul>
           <li className={setSelectStatus('/')}>

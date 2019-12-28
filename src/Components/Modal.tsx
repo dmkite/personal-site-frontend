@@ -7,7 +7,7 @@ export interface IModalProps{
 }
 
 const Modal = (props: IModalProps):JSX.Element => {
-  const {galleryItem : {image, title, width, height, description}} = props
+  const {galleryItem : {image, title, width, height, desc}} = props
   return (
     <div className='modal'>
       <button onClick={() => props.select(null)}>x</button>
@@ -15,7 +15,7 @@ const Modal = (props: IModalProps):JSX.Element => {
         <img src={image} alt={title} />
         <h2>{title}</h2>
         <h3>{width}x{height}</h3>
-        <p>{description}</p>
+        <p>{desc}</p>
       </div>
     </div>
   )
