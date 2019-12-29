@@ -752,3 +752,45 @@ main {
     width: calc(100% - 2.5vw);
   }
 }
+
+.admin-header{
+  display: flex;
+  justify-content: 'space-around';
+  width:100%;
+  outline: 1px solid red;
+  height:50px;
+}
+
+.admin-header button{
+  display: block
+}
+
+.admin-table {
+  width: 100%;
+  border:1px solid black;
+  border-collapse:collapse
+}
+
+.admin-talbe thead td {
+  font-weight: bold;
+}
+.admin-table tr, .admin-table td {
+  border:1px solid black;
+  padding:10px
+}
+
+.admin-table .del, .admin-table .edit {
+  height:50px;
+  width:50px;
+  background-color:green;
+  color:white;
+  font-size:2em;
+  border-radius:2px;
+  border:none;
+}
+
+.admin-table .del {
+  background-color:red;
+}
+
+

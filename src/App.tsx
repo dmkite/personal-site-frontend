@@ -3,7 +3,7 @@ import './App.css'
 import Nav from './Components/Nav'
 import Main from './Components/Main'
 
-const App = (): JSX.Element => {
+const App:React.FC = (): JSX.Element => {
   return (
     <Fragment>
       {/* <div className='top-brackets' /> */}
