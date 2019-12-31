@@ -172,7 +172,7 @@ nav {
     right: 0;
   }
   100% {
-    right: -60vw;
+    right: -60.contentvw;
   }
 }
 
@@ -278,8 +278,10 @@ main {
 }
 
 .content {
+  margin:13vh auto 0;
   height: 89vh;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -290,10 +292,34 @@ main {
   Home
 =============================================================================*/
 .profile-image {
-  width:66%;
-  position: absolute;
-  bottom: -1vw;
-  right: 0;
+position: absolute; 
+bottom:0; 
+right:0;
+width:75vw;
+height:45vh;
+fill: #222;
+outline:1px solid purple
+}
+.intro-text {
+  padding-right:0;
+  /* width:; */
+  font:normal 4vw/6vw 'Roboto Mono', monospace;
+}
+
+.quick-links button {
+  border: none;
+  height: 6vw;
+  background-color: #222;
+  display:block;
+  margin: 3vw 0 0 4vw;
+  padding:1vw;
+  outline:1px solid green;
+  width:10
+}
+
+.quick-links button a {
+  color:white;
+  text-decoration: none;
 }
 /*=============================================================================
   Gallery
