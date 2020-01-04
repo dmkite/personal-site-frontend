@@ -103,9 +103,9 @@ h3 {
   border-right: 1px solid #222;
 }
 
-/* 
+/*=============================================================================
   Nav
-*/
+=============================================================================*/
 
 nav {
   height: 12vh;
@@ -121,9 +121,9 @@ nav {
   height: 100vh;
   width: 60vw;
   background-color: white;
-  border-left: 1vw solid #222;
+  border-right: 1vw solid #222;
   position: absolute;
-  right: 0;
+  left: 0;
   animation: slideout .2s linear;
   background-color: white;
   z-index: 10
@@ -131,7 +131,7 @@ nav {
 
 .closed {
   animation: slideIn .2s linear;
-  right: -60vw;
+  left: -60vw;
 }
 
 .menu ul {
@@ -160,26 +160,26 @@ nav {
 
 @keyframes slideout {
   0% {
-    right: -60vw;
+    left: -60vw;
   }
   100% {
-    right: 0;
+    left: 0;
   }
 }
 
 @keyframes slideIn {
   0% {
-    right: 0;
+    left: 0;
   }
   100% {
-    right: -60;
+    left: -60;
   }
 }
 
 .nav-icon {
   width: 8vh;
   position: absolute;
-  right: 20px;
+  left: 20px;
   top: 20px;
   height: 8vh;
   z-index: 1000;
@@ -327,14 +327,14 @@ main {
   border: none;
   background-color: transparent;
   position: relative;
-  width:35%
+  width:35%;
+  background-color: #222; 
 }
 
 .quick-links button a {
   font: normal 120% /240% 'Roboto Mono', monospace;
   color: white;
   text-decoration: none;
-  background-color: #222;
   padding:2%;
   width:100%
 }
@@ -623,7 +623,7 @@ main {
     Home
   ===========================================================================*/
   .profile-image {
-    position: fixed;
+    position: static;
     bottom: -1%;
     right: -15%;
     width: 95%;
@@ -659,23 +659,37 @@ main {
   /*===========================================================================
     Home
   ===========================================================================*/
+  .bottom-row {
+    display:flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
   .profile-image {
-    width: 80%;
-    bottom: -3%;
-    right:0;
-    position: absolute;
+    width: 60%;
+    position: static;
   }
   .quick-links {
-    margin-top: 40px
+    margin-top: 0;
+    width: 40%;
   }
   .title-font {
     font-size: 350%;
   }
   .intro-text {
-    font-size:200%;
+    font-size:150%;
     line-height:175%;
   }
   .quick-links button a {
-    font-size: 250%
+    font-size: 150%;
+  }
+
+  .quick-links button {
+    width: 100%;
+    padding:0;
+    max-height: 75px;
+  }
+
+  .quick-links button:nth-of-type(1) {
+    margin-top:0;
   }
 }
