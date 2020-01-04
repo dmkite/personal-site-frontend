@@ -1,27 +1,26 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect, useState} from "react";
 
-const Loading:React.FC = ():JSX.Element => {
-  const [dots, addDots] = useState<string>('')
-  
-  useEffect(():void => {
-    if(dots.length === 4) {
+const Loading: React.FC = (): JSX.Element => {
+  const [dots, addDots] = useState<string>("");
+
+  useEffect((): void => {
+    if (dots.length === 4) {
       setTimeout(() => {
-        addDots('')
-      }, 1000)
-    }
-    else {
+        addDots("");
+      }, 1000);
+    } else {
       setTimeout(() => {
-         addDots(dots + '.')
-      }, 500)
+         addDots(dots + ".");
+      }, 500);
     }
-  }, [dots])
+  }, [dots]);
 
   return (
       <div className="loading">
         {dots}
       </div>
-  )
-  
-}
+  );
 
-export default Loading
+};
+
+export default Loading;

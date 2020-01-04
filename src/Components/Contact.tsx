@@ -1,59 +1,59 @@
-import React, { useState, FormEvent, ChangeEvent, Fragment } from 'react'
-import axios from 'axios'
-import config from '../config'
+import axios from "axios";
+import React, { ChangeEvent, FormEvent, Fragment, useState } from "react";
+import config from "../config";
 
 interface IFormData {
-  name: string
-  email: string
-  message: string
+  name: string;
+  email: string;
+  message: string;
 }
 
 interface ISubmitStatus {
-  status: string
-  text: string
+  status: string;
+  text: string;
 }
 
 const Contact = (): JSX.Element => {
   const [formData, setFormData] = useState<IFormData>({
-    name: '',
-    email: '',
-    message: ''
-  })
+    name: "",
+    email: "",
+    message: ""
+  });
 
   const [submitStatus, changeSubmitStatus] = useState<ISubmitStatus>({
-    status: 'unsubmitted',
-    text: 'submit'
-  })
-  const [error, setErrorMessage] = useState<string | null>(null)
+    status: "unsubmitted",
+    text: "submit"
+  });
+  const [error, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
-    e.preventDefault()
-    changeSubmitStatus({ status: 'submitting', text: '...' })
-    const token: string | null = localStorage.getItem('form-token')
+    e.preventDefault();
+    changeSubmitStatus({ status: "submitting", text: "..." });
+    const token: string | null = localStorage.getItem("form-token");
     axios.post(`${config.serverUrl}/api/contact`, { ...formData, token })
-      .then(res => {
-        changeSubmitStatus({ status: 'submitSuccess', text: 'success' })
-        localStorage.setItem('form-token', res.data.token)
-        console.log(res)
+      .then((res) => {
+        changeSubmitStatus({ status: "submitSuccess", text: "success" });
+        localStorage.setItem("form-token", res.data.token);
+        console.log(res);
       })
-      .catch(err => {
-        changeSubmitStatus({ status: 'submitFailure', text: 'failure' })
-        err.response.status === 429 && setErrorMessage(err.response.data.message)
-        console.warn(err)
-      })
-  }
+      .catch((err) => {
+        changeSubmitStatus({ status: "submitFailure", text: "failure" });
+        err.response.status === 429 && setErrorMessage(err.response.data.message);
+        console.warn(err);
+      });
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
-    const key: string = e.target.id
-    const val: string = e.target.value
-    setFormData({ ...formData, [key]: val })
-  }
+    const key: string = e.target.id;
+    const val: string = e.target.value;
+    setFormData({ ...formData, [key]: val });
+  };
 
   return (
     <Fragment>
       <h1>Contact</h1>
       <form onSubmit={(e: FormEvent<HTMLFormElement>) => handleSubmit(e)}>
-        <div className='input-field'>
+        <div className="input-field">
           <label htmlFor="name">Name</label>
           <input
             required
@@ -65,7 +65,7 @@ const Contact = (): JSX.Element => {
             onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
           />
         </div>
-        <div className='input-field'>
+        <div className="input-field">
 
           <label htmlFor="email">Email</label>
           <input
@@ -78,7 +78,7 @@ const Contact = (): JSX.Element => {
             onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
           />
         </div>
-        <div className='input-field'>
+        <div className="input-field">
           <label htmlFor="message">Message</label>
           <textarea
             required
@@ -95,7 +95,7 @@ const Contact = (): JSX.Element => {
       </form>
       {error && <div className="error">{error}</div>}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

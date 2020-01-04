@@ -1,27 +1,27 @@
-import React, { useState, Fragment } from 'react'
-import Thumbnail from './Thumbnail'
-import Modal from './Modal'
-import useAxios from 'axios-hooks'
-import config from '../config'
-import Loading from '../Components/Loading'
+import useAxios from "axios-hooks";
+import React, { Fragment, useState } from "react";
+import Loading from "../Components/Loading";
+import config from "../config";
+import Modal from "./Modal";
+import Thumbnail from "./Thumbnail";
 
 export interface IGalleryItem {
-  id: string
-  title: string
-  desc: string
-  height: number
-  width: number
-  image: string
-  thumbnail: string
+  id: string;
+  title: string;
+  desc: string;
+  height: number;
+  width: number;
+  image: string;
+  thumbnail: string;
 }
 
 const Gallery = (): JSX.Element => {
-  const [selected, select] = useState<IGalleryItem | null>(null)
+  const [selected, select] = useState<IGalleryItem | null>(null);
   const [{
     data,
     loading,
     error
-  }] = useAxios(`${config.serverUrl}/api/gallery`)
+  }] = useAxios(`${config.serverUrl}/api/gallery`);
 
   const staticContent = <Fragment>
     <h1>Gallery</h1>
@@ -31,35 +31,35 @@ const Gallery = (): JSX.Element => {
       and flat monochrome. In each work splashes of color hint at a beautiful
       reality beyond our own, igniting our primordial need to escape monotony.
     </p>
-  </Fragment>
+  </Fragment>;
 
-
-  if (loading) return (<Fragment>
+  if (loading) { return (<Fragment>
     {staticContent}
     <Loading />
-  </Fragment>)
+  </Fragment>);
+  }
 
-  if (error) return <p>{JSON.stringify(error)}</p>
+  if (error) { return <p>{JSON.stringify(error)}</p>; }
 
   const transformedData: IGalleryItem[] = Object.keys(data)
     .reduce((acc: IGalleryItem[], id: string): IGalleryItem[] => {
-      acc.push(data[id])
-      return acc
-    }, [])
+      acc.push(data[id]);
+      return acc;
+    }, []);
 
   return (
     <Fragment>
       {staticContent}
-      <div className='gallery'>
+      <div className="gallery">
         {transformedData.map((d: IGalleryItem, i: number): JSX.Element => {
-          return <Thumbnail key={i} galleryItem={d} select={select} />
+          return <Thumbnail key={i} galleryItem={d} select={select} />;
         }
         )}
       </div>
 
       {selected && <Modal galleryItem={selected} select={select} />}
     </Fragment>
-  )
-}
+  );
+};
 
-export default Gallery
+export default Gallery;
