@@ -25,9 +25,16 @@ const Contact = (): JSX.Element => {
     text: "submit"
   });
   const [error, setErrorMessage] = useState<string | null>(null);
-
+  const redirect = (): void => {
+    setErrorMessage('You have already submitted this message. Redirecting you to the home page.')
+    setTimeout(() => {window.location.pathname ='/'}, 5000)
+  }
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+    if (submitStatus.status === 'submitSuccess') {
+      redirect ();
+      return
+    }
     changeSubmitStatus({ status: "submitting", text: "..." });
     const token: string | null = localStorage.getItem("form-token");
     axios.post(`${config.serverUrl}/api/contact`, { ...formData, token })
@@ -48,6 +55,11 @@ const Contact = (): JSX.Element => {
     const val: string = e.target.value;
     setFormData({ ...formData, [key]: val });
   };
+
+  const removeError = (): boolean => {
+    setTimeout(() => setErrorMessage(null), 10000)
+    return true
+  }
 
   return (
     <Fragment>
@@ -93,7 +105,7 @@ const Contact = (): JSX.Element => {
           className={submitStatus.status}
           type="submit">{submitStatus.text}</button>
       </form>
-      {error && <div className="error">{error}</div>}
+      {error && removeError() && <div className="error">{error}</div>}
     </Fragment>
   );
 };

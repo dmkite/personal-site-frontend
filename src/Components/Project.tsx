@@ -10,44 +10,54 @@ interface ISvgMapper {
   android: JSX.Element;
   windows: JSX.Element;
   web: JSX.Element;
-  iOS: JSX.Element;
+  ios: JSX.Element;
 }
 
 const svgMapper: ISvgMapper = {
   android: <Android className="svg" />,
   windows: <Windows className="svg" />,
   web: <Web className="svg" />,
-  iOS: <IOS className="svg" />
+  ios: <IOS className="svg" />
 };
 
 export interface IKeyVal {
   [key: string]: string | number;
 }
 
-interface IProjectData {
-  specs: IKeyVal[];
+interface IProjectItem {
+  id?: string;
   title: string;
-  desc: IKeyVal[];
-  svg: string;
+  image: string;
+  specs: {
+    [key:string]: string | number | undefined
+    units?: number
+    framework: string
+    platform: string
+    persistence: string
+  };
+  desc: {
+    Description: string
+    Architecture: string
+    Impact: string
+  };
 }
 
-const Project = (props: IProjectData): JSX.Element => {
+const Project = (props: IProjectItem): JSX.Element => {
   const [isOpen, toggleOpen] = useState(false);
 
   return (
     <section>
       <h2>{props.title}</h2>
       <div className="specs">
-        {svgMapper[props.svg]}
+        {svgMapper[props.image.toLowerCase()]}
         <div>
-          {props.specs.map((s: IKeyVal, i: number) => {
+          {Object.keys(props.specs).map((k: string, i: number) => {
             let elipses: string = "";
-            const [key]: string[] = Object.keys(s);
-            const val: string = String(s[key]); // typecast for numbers
-            while (elipses.length + key.length + val.length < 30) {
+            const val: string = String(props.specs[k]); // typecast for numbers
+            while (elipses.length + k.length + val.length < 30) {
               elipses += ".";
             }
-            return <p key={i}><b>{key}</b>{elipses}{val}</p>;
+            return <p key={i}><b>{k}</b>{elipses}{val}</p>;
           })}
         </div>
       </div>
@@ -58,15 +68,21 @@ const Project = (props: IProjectData): JSX.Element => {
           transform: `rotate(${isOpen ? "180deg" : "0deg"})`
         }}/>
       </button>
-      <div className={isOpen ? "visible-details" : "hidden-details"}>
-        {props.desc.map((d: IKeyVal, i: number) => {
-          const [key]: string[] = Object.keys(d);
-          const val: string | number = d[key];
-          return <div key={i}>
-            <h3>{key}</h3>
-            <p>{val}</p>
-          </div>;
-        })}
+      <div className={`details ${isOpen ? "visible-details" : "hidden-details"}`}>
+        <section>
+          <h3>Description</h3>
+          <p>{props.desc.Description}</p>
+        </section>
+        
+        <section>
+          <h3>Architecture</h3>
+          <p>{props.desc.Architecture}</p>
+        </section>
+
+        <section>
+          <h3>Impact</h3>
+          <p>{props.desc.Impact}</p>
+        </section>
       </div>
     </section>
   );
