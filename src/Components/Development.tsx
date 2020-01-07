@@ -21,10 +21,10 @@ const Development = (): JSX.Element => {
     return <Loading />;
   }
   if (error) {
-    console.log(error);
+    console.error(error);
     return <div>Something went wrong. I promise I'm not a bad developer :[</div>;
   }
-  console.log(data)
+
   return (
     <Fragment>
       <h1>Development</h1>

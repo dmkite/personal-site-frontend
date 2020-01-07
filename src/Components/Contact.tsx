@@ -41,7 +41,6 @@ const Contact = (): JSX.Element => {
       .then((res) => {
         changeSubmitStatus({ status: "submitSuccess", text: "success" });
         localStorage.setItem("form-token", res.data.token);
-        console.log(res);
       })
       .catch((err) => {
         changeSubmitStatus({ status: "submitFailure", text: "failure" });

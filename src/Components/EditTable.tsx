@@ -24,9 +24,8 @@ const EditTable = (props: IEditTableProps) => {
         return response.data[k];
       });
       setContent(mapableContent);
-      console.log(response);
     } catch (err) {
-      console.log(err);
+      console.warn(err);
     }
   };
 
@@ -48,7 +47,7 @@ const EditTable = (props: IEditTableProps) => {
       setContent(content);
       setBannerContent({ isError: false, message: `Successfully deleted ${id}` });
     } catch (err) {
-      console.log(err);
+      console.warn(err);
       setBannerContent({ isError: true, message: err });
     }
   };
