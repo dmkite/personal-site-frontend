@@ -126,7 +126,7 @@ nav {
   left: 0;
   animation: slideout .2s linear;
   background-color: white;
-  z-index: 10
+  z-index: 100
 }
 
 .closed {
@@ -305,12 +305,12 @@ main {
 }
 
 .title-font {
-  font-size: 250%;
+  font-size: 2.5re,;
 }
 
 .intro-text {
   padding-right: 0;
-  font: normal 120%/120% 'Roboto Mono', monospace;
+  font: normal 1.2rem/1.2rem 'Roboto Mono', monospace;
 }
 
 .quick-links {
@@ -332,7 +332,7 @@ main {
 }
 
 .quick-links button a {
-  font: normal 120% /240% 'Roboto Mono', monospace;
+  font: normal 1.2rem /1.2rem 'Roboto Mono', monospace;
   color: white;
   text-decoration: none;
   padding:2%;
@@ -345,29 +345,31 @@ main {
 =============================================================================*/
 
 .thumbnail {
-  height: 23vw;
-  width: 23vw;
+  height: 0;
+  width: 30%;
+  padding-bottom:30%;
+  outline:1px solid red;
   background-color: #222;
   position: relative;
-  margin-bottom: 3vw;
+  margin-bottom: 30px;
 }
 
 .thumbnail:before {
   content: '';
-  width: 6vw;
-  height: 25vw;
+  width: 20%;
+  height: 102%;
   position: absolute;
-  left: 8.5vw;
-  top: -1vw;
+  left:40%;
+  top: -1%;
   background-color: white;
   z-index: 1
 }
 
 .thumbnail img {
-  width: 15vw;
+  width: 80%;
   position: relative;
-  margin: 4vw;
-  z-index: 10
+  margin: 10%;
+  z-index: 1;
 }
 
 .thumbnail img:hover {
@@ -385,7 +387,7 @@ main {
 .gallery {
   display: flex;
   justify-content: space-between;
-  margin: 5vw;
+  margin-top:40px;
   flex-wrap: wrap;
 }
 
@@ -394,6 +396,8 @@ main {
   width: 100vw;
   position: fixed;
   top: 0;
+  left:0;
+  padding:20px;
   background-color: #222;
   z-index: 1000;
   color: white;
@@ -431,8 +435,9 @@ main {
 }
 
 .modal img {
-  max-width: 94vw;
-  margin: 0 3vw 5vw;
+  max-width: 984px;
+  max-height:984px;
+  outline:1px solid white;
 }
 
 .modal-content {
@@ -443,7 +448,7 @@ main {
 }
 
 .modal h2, .modal h3, .modal p {
-  margin: 0 3vw;
+  color:white;
 }
 
 .svg {
@@ -453,7 +458,7 @@ main {
 .specs {
   display: flex;
   position: relative;
-  width: 100vw;
+  width: 100%;
 }
 
 .specs div {
@@ -514,12 +519,12 @@ input:focus, textarea:focus {
 }
 
 form button {
-  box-sizing: content-box;
+  /* box-sizing: content-box; */
   padding: 3vw;
   background-color: transparent;
   border: 1vw solid #222;
   font: bold 5vw/1.6em 'Roboto Mono', monospace;
-  width: 18vw;
+  width: 18%;
   border-radius: 2px;
 }
 
@@ -531,7 +536,7 @@ button.submitting {
 }
 
 button.submitFailure, button.submitSuccess {
-  width: calc(100% - 8vw);
+  width: 100%;
   color: white;
   background-color: #222;
   animation: grow .2s linear;
@@ -635,18 +640,24 @@ main {
   }
 
   .intro-text {
-    font-size:150%;
+    font-size:1.5rem;
     line-height:150%
   }
   .quick-links button a {
-    font-size: 150%
+    font-size: 1.5rem
   }
   /*===========================================================================
     Nav
   ===========================================================================*/
   .menu a {
-    font-size: 150%;
-    line-height: 150%
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+/*===========================================================================
+    Contact
+  ===========================================================================*/
+  form button {
+    width: auto;
   }
 
 }
@@ -655,7 +666,33 @@ main {
   /*===========================================================================
     General
   ===========================================================================*/
-
+  .content {
+    /* padding-top:13vh; */
+    height:87vh;
+    padding-bottom:50px;
+  }
+  h1 {
+    font-size:4rem;
+  }
+  h2 {
+    font-size:3rem;
+  }
+  h3 {
+    font-size:2rem;
+  }
+  p {
+    font-size:1.5rem;
+    line-height: 2rem;
+  }
+  /*===========================================================================
+    Nav
+  ===========================================================================*/
+  .menu {
+    width:33vw;
+  }
+  .menu li {
+    padding: 20px;
+  }
   /*===========================================================================
     Home
   ===========================================================================*/
@@ -673,7 +710,7 @@ main {
     width: 40%;
   }
   .title-font {
-    font-size: 350%;
+    font-size: 3.5rem;
   }
   .intro-text {
     font-size:150%;
@@ -692,4 +729,112 @@ main {
   .quick-links button:nth-of-type(1) {
     margin-top:0;
   }
+  /*===========================================================================
+    Development
+  ===========================================================================*/
+  .visible-details, .hidden-details {
+    display: block;
+  }
+  .details-button {
+    display:none;
+  }
+  .specs p, label {
+    font: normal 1.5rem/3rem 'Roboto Mono', monospace;
+  }
+  .specs .svg {
+    width: 30%;
+  }
+  .specs{ 
+    margin-bottom:20px;
+  }
+
+  .details section {
+    margin-bottom:20px
+  }
+  /*===========================================================================
+    Contact
+  ===========================================================================*/
+  form {
+    padding: 0;
+    width:50%;
+  }
+  .input-field {
+    height:50px;
+    margin-bottom:40px;
+  }
+
+  .input-field input{
+    height:50px;
+  }
+
+  .input-field textarea, .input-field input, button[type=submit] {
+    border: 5px solid #222;
+    font-size: 1rem;
+    line-height:1rem;
+    padding:0 10px;
+  }
+
+  .input-field textarea {
+    padding-top:20px
+  }
+
+  .input-field label {
+    font-size:1.5rem;
+    line-height:0rem;
+    /* outline:1px solid blue; */
+    top:-0.75rem;
+  }
+  button[type="submit"]{
+    font-size:1.5rem;
+    line-height:1.5rem;
+    height:50px;
+  }
+
+  .error {
+    position:absolute;
+    width:100vw;
+    left:0;
+    top:13vh;
+    z-index:10000;
+    height:50px;
+    border-bottom:1px solid #703030;
+    color:#703030;
+    font-weight:bold;
+    background-color: #a36363;
+    padding:0 20px;
+    line-height:50px;
+  }
+  /*===========================================================================
+    Contact
+  ===========================================================================*/
+  .modal button {
+    height:50px;
+    width:50px;
+    line-height:50px;
+  }
+
+  .modal button:before, .modal button:after {
+  height: 50px;
+  width: 10px;
+  border: 10px solid white;
+  border-right: none;
+  left: -10px;
+  top: -10px;
+  z-index: 1000
+}
+
+.modal button:after {
+  left: auto;
+  right: -10px;
+  border: 10px solid white;
+  border-left: none;
+}
+.modal-content{
+  margin-top:120px;
+  height:calc(100vh - 120px);
+  max-width: 1024px;
+  outline:1px dotted green;
+  margin:120px auto 0;
+}
+
 }

@@ -22,12 +22,13 @@ const Development = (): JSX.Element => {
   }
   if (error) {
     console.log(error);
-    return <div>:[ something went wrong.</div>;
+    return <div>Something went wrong. I promise I'm not a bad developer :[</div>;
   }
+  console.log(data)
   return (
     <Fragment>
       <h1>Development</h1>
-      {data.map((d: IProjectData, i: number) => <Project key={i} {...d}/>)}
+      {Object.keys(data).map((id: string, i: number) => <Project key={i} {...data[id]}/>)}
     </Fragment>
   );
 };
