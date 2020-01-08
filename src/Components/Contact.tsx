@@ -26,14 +26,14 @@ const Contact = (): JSX.Element => {
   });
   const [error, setErrorMessage] = useState<string | null>(null);
   const redirect = (): void => {
-    setErrorMessage('You have already submitted this message. Redirecting you to the home page.')
-    setTimeout(() => {window.location.pathname ='/'}, 5000)
-  }
+    setErrorMessage("You have already submitted this message. Redirecting you to the home page.");
+    setTimeout(() => {window.location.pathname = "/"; }, 5000);
+  };
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    if (submitStatus.status === 'submitSuccess') {
+    if (submitStatus.status === "submitSuccess") {
       redirect ();
-      return
+      return;
     }
     changeSubmitStatus({ status: "submitting", text: "..." });
     const token: string | null = localStorage.getItem("form-token");
@@ -56,9 +56,9 @@ const Contact = (): JSX.Element => {
   };
 
   const removeError = (): boolean => {
-    setTimeout(() => setErrorMessage(null), 10000)
-    return true
-  }
+    setTimeout(() => setErrorMessage(null), 10000);
+    return true;
+  };
 
   return (
     <Fragment>
