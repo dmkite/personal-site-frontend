@@ -15,18 +15,9 @@ const Home = (): JSX.Element => {
       </p>
       <section className="bottom-row">
         <section className="quick-links">
-          <button>
             <Link to="/development">Development</Link>
-            <div className="trapezoid" />
-          </button>
-          <button>
             <Link to="/design">Graphic Design</Link>
-            <div className="trapezoid" />
-          </button>
-          <button>
             <Link to="/gallery">Art Gallery</Link>
-            <div className="trapezoid" />
-          </button>
         </section>
         <Dylan className="profile-image" />
       </section>

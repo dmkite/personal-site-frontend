@@ -30,14 +30,14 @@ const Design = (): JSX.Element => {
       {Object.keys(data).map((id: string, i: number): JSX.Element => {
         const designItem: IDesignItem = data[id];
         return (
-          <Fragment key={i}>
+          <div className="design-item" key={i}>
             <h2>{designItem.title}</h2>
             <Slideshow images={designItem.images} />
             <h3>Description</h3>
             <p>{designItem.desc}</p>
             <h3>Impact</h3>
             <p>{designItem.impact}</p>
-          </Fragment>
+          </div>
         );
       })}
     </Fragment>
