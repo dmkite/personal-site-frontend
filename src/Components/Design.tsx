@@ -12,6 +12,7 @@ interface IDesignItem {
   images: string[];
 }
 const Design = (): JSX.Element => {
+    config.serverUrl = 'https://dylankite.com'
   const [{ data, loading, error }] = useAxios(`${config.serverUrl}/api/design`);
   if (loading) {
     return <Loading />;

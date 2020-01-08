@@ -619,6 +619,56 @@ main {
 }
 
 /*===========================================================================
+  Design
+===========================================================================*/
+.slideshow {
+  padding-bottom:10px;
+  width: 100%;
+  position:relative;
+  min-height:200px;
+  margin-bottom:30px;
+
+}
+.slideshow section {
+  display:flex;
+  justify-content:space-between;
+  width:25%;
+  right:38.5%;
+  position: absolute;
+  bottom:-10px;
+}
+.circles {
+  width:10px;
+  height:10px;
+  border:1px solid #222;
+}
+
+.filled {
+  background-color:#222;
+}
+ 
+.slideshow button {
+  height:50px;
+  width:20px;
+  border:none;
+  background-color:#222;
+  color:white;
+  position: absolute;
+  top: calc(50% - 25px);
+  left:0;
+}
+
+.slideshow button:nth-of-type(2) {
+  left: auto;
+  right:0;
+}
+
+.slideshow img {
+  display:block;
+  margin:0 auto 10px;
+  max-height:400px;
+}
+/*===========================================================================
   Medium Screens
 ===========================================================================*/
 
