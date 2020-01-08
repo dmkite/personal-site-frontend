@@ -46,7 +46,7 @@ const Project = (props: IProjectItem): JSX.Element => {
   const [isOpen, toggleOpen] = useState(false);
 
   return (
-    <section>
+    <section className="project-item">
       <h2>{props.title}</h2>
       <div className="specs">
         {svgMapper[props.image.toLowerCase()]}

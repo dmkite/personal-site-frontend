@@ -331,7 +331,7 @@ top:0;
   border: none;
   margin-bottom: 40px;
   background-color: #222;
-  font: normal 1rem /50px'Roboto Mono', monospace;
+  font: normal 1rem / 50px 'Roboto Mono', monospace;
   color: white;
   text-decoration: none;
   padding: 0 10px;
@@ -600,6 +600,8 @@ main {
   width: 10vw;
   font-size: 5vw;
   position: relative;
+  border: none;
+  background-color:transparent;
 }
 
 .details-button:after {
@@ -615,7 +617,9 @@ main {
 .hidden-details {
   display: none;
 }
-
+.project-item {
+  margin-bottom:40px;
+}
 /*===========================================================================
   Design
 ===========================================================================*/
@@ -790,8 +794,8 @@ main {
     font-size: 150%;
     width: 100%;
     padding: 0;
-    max-height: 75px;
   }
+
   .quick-links a:nth-of-type(1) {
     margin-top: 0;
   }
