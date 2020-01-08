@@ -1,12 +1,12 @@
-interface Config {
+interface IConfig {
   serverUrl: string;
 }
 
-const prodConfig: Config = {
+const prodConfig: IConfig = {
   serverUrl: "https://dylankite.com"
 };
 
-const devConfig: Config = {
+const devConfig: IConfig = {
   serverUrl: "http://localhost:8080"
 };
 

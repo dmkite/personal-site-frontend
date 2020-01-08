@@ -6,7 +6,7 @@ const Home = (): JSX.Element => {
   return (
     <Fragment>
       <h1 className="title-font">Dylan Kite</h1>
-      <p className='intro-text'>
+      <p className="intro-text">
         I'm Dylan. I'm an artist and social worker turned full-stack JavaScript
 				engineer, a  commanding technical background in modern web technologies
 				complements meticulous communication and customer-forward thinking
@@ -14,21 +14,21 @@ const Home = (): JSX.Element => {
 				- above all - delight!
       </p>
       <section className="bottom-row">
-        <section className='quick-links'>
+        <section className="quick-links">
           <button>
-            <Link to='/development'>Development</Link>
+            <Link to="/development">Development</Link>
             <div className="trapezoid" />
           </button>
           <button>
-            <Link to='/design'>Graphic Design</Link>
+            <Link to="/design">Graphic Design</Link>
             <div className="trapezoid" />
           </button>
           <button>
-            <Link to='/gallery'>Art Gallery</Link>
+            <Link to="/gallery">Art Gallery</Link>
             <div className="trapezoid" />
           </button>
         </section>
-        <Dylan className='profile-image' />
+        <Dylan className="profile-image" />
       </section>
     </Fragment>
   );

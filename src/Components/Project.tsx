@@ -29,7 +29,7 @@ interface IProjectItem {
   title: string;
   image: string;
   specs: {
-    [key:string]: string | number | undefined
+    [key: string]: string | number | undefined
     units?: number
     framework: string
     platform: string
@@ -73,7 +73,7 @@ const Project = (props: IProjectItem): JSX.Element => {
           <h3>Description</h3>
           <p>{props.desc.Description}</p>
         </section>
-        
+
         <section>
           <h3>Architecture</h3>
           <p>{props.desc.Architecture}</p>
