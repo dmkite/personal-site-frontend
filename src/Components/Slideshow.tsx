@@ -14,23 +14,18 @@ const Slideshow = (props: ISlideshowProps): JSX.Element => {
     changedIndex < 0 && changeIndex(imgListLength)
     changedIndex >= 0 && changedIndex <= imgListLength && changeIndex(changedIndex)
   };
-  const images: string[] = [
-    "https://dylankite.com/assets/design/signin.gif",
-    "https://dylankite.com/assets/design/attendance.gif",
-    "https://dylankite.com/assets/design/accounts.gif",
-    "https://dylankite.com/assets/design/enrollment.gif"
-  ]
+  
   return (
     <div className="slideshow">
-      <button onClick={() => changeImage(-1)}></button>
+      <button dangerouslySetInnerHTML={{ __html: '&#8249'}} onClick={() => changeImage(-1)}/>
       <img src={props.images[currentIndex]} alt="Dylan Kite design work"/>
         <section>
-          {images.map((img: string, i: number): JSX.Element => (
+          {props.images.map((img: string, i: number): JSX.Element => (
             <div key={i} className={`circles ${i === currentIndex ? "filled" : null}`}/>
           )
           )}
         </section>
-        <button onClick={() => changeImage(1)}>></button>
+        <button dangerouslySetInnerHTML={{ __html: '&#8250'}} onClick={() => changeImage(1)} />
     </div>
       );
     };
