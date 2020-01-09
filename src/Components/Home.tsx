@@ -8,7 +8,7 @@ const Home = (): JSX.Element => {
       <h1 className="title-font">Dylan Kite</h1>
       <p className="intro-text">
         I'm Dylan. I'm an artist and social worker turned full-stack JavaScript
-				engineer, a  commanding technical background in modern web technologies
+				engineer. A commanding technical background in modern web technologies
 				complements meticulous communication and customer-forward thinking
 				honed as a non-profit educator. It’s my mission to develop, design, and
 				- above all - delight!
