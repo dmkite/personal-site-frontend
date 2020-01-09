@@ -22,7 +22,7 @@ const Development = (): JSX.Element => {
   }
   if (error) {
     console.error(error);
-    return <div>Something went wrong. I promise I'm not a bad developer :[</div>;
+    return <p>Something went wrong. I promise I'm not a bad developer :[</p>;
   }
 
   return (

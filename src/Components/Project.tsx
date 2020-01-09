@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ReactComponent as Android } from "../assets/android.svg";
-import {ReactComponent as Chevron} from "../assets/chevron.svg";
 import { ReactComponent as IOS } from "../assets/iOS.svg";
 import { ReactComponent as Web } from "../assets/web.svg";
 import { ReactComponent as Windows } from "../assets/windows.svg";
@@ -59,16 +58,10 @@ const Project = (props: IProjectItem): JSX.Element => {
             }
             return <p key={i}><b>{k}</b>{elipses}{val}</p>;
           })}
+          <button className="details-button" onClick={() => toggleOpen(!isOpen)}>{isOpen ? 'Less' : 'More'}</button>
+
         </div>
-      </div>
-      <button className="details-button"
-      onClick={() => toggleOpen(!isOpen)}>
-        <Chevron style={{
-          width: "10vw",
-          transform: `rotate(${isOpen ? "180deg" : "0deg"})`
-        }}/>
-      </button>
-      <div className={`details ${isOpen ? "visible-details" : "hidden-details"}`}>
+      </div>      <div className={`details ${isOpen ? "visible-details" : "hidden-details"}`}>
         <section>
           <h3>Description</h3>
           <p>{props.desc.Description}</p>

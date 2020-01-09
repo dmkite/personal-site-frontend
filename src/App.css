@@ -337,6 +337,7 @@ top:0;
   padding: 0 10px;
   display: inline-block;
   text-align:center;
+  border-radius:2px;
 }
 
 
@@ -596,22 +597,11 @@ main {
 =============================================================================*/
 
 .details-button {
-  height: 10vw;
-  width: 10vw;
-  font-size: 5vw;
-  position: relative;
   border: none;
   background-color:transparent;
-}
-
-.details-button:after {
-  content: '';
-  position: absolute;
-  width: calc(100vw - 18vw);
-  height: 0.5vw;
-  background-color: #222;
-  top: 4vw;
-  left: 11vw;
+  text-decoration: underline;
+  font: bold 1.2rem/1.5rem 'Roboto Mono', monospace; 
+  margin-top:20px;
 }
 
 .hidden-details {

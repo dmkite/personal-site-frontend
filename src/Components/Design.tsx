@@ -19,9 +19,8 @@ const Design = (): JSX.Element => {
   }
 
   if (error) {
-    return <Fragment>
-      Something went wrong. I promise I'm not a bad developer :[
-        </Fragment>;
+    console.warn(error)
+    return <p>Something went wrong. I promise I'm not a bad developer :[</p>;
   }
 
   return (
