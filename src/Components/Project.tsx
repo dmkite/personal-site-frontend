@@ -3,6 +3,7 @@ import { ReactComponent as Android } from "../assets/android.svg";
 import { ReactComponent as IOS } from "../assets/iOS.svg";
 import { ReactComponent as Web } from "../assets/web.svg";
 import { ReactComponent as Windows } from "../assets/windows.svg";
+import {FaGithub, FaDownload, FaExternalLinkSquareAlt} from 'react-icons/fa'
 
 interface ISvgMapper {
   [key: string]: JSX.Element;
@@ -23,7 +24,7 @@ export interface IKeyVal {
   [key: string]: string | number;
 }
 
-interface IProjectItem {
+export interface IProjectItem {
   id?: string;
   title: string;
   image: string;
@@ -39,6 +40,12 @@ interface IProjectItem {
     Architecture: string
     Impact: string
   };
+  order: number
+  links?: {
+    github?: string
+    livelink?: string
+    download?: string
+  }
 }
 
 const Project = (props: IProjectItem): JSX.Element => {
@@ -57,7 +64,16 @@ const Project = (props: IProjectItem): JSX.Element => {
               elipses += ".";
             }
             return <p key={i}><b>{k}</b>{elipses}{val}</p>;
-          })}
+          })} 
+          {props.links && props.links.github && <a className="resource-link" target="_blank" href={props.links.github}>
+            <FaGithub size={20}/>
+            </a>}
+            {props.links && props.links.livelink && <a className="resource-link" target="_blank" href={props.links.github}>
+            <FaExternalLinkSquareAlt size={20}/>
+            </a>}
+            {props.links && props.links.download && <a className="resource-link" href={props.links.download}>
+            <FaDownload size={20}/>
+            </a>}
           <button className="details-button" onClick={() => toggleOpen(!isOpen)}>{isOpen ? 'Less' : 'More'}</button>
 
         </div>
