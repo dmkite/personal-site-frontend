@@ -606,8 +606,13 @@ main {
 .hidden-details {
   display: none;
 }
+
 .project-item {
   margin-bottom:40px;
+}
+
+.resource-link {
+  margin-right: 20px;
 }
 /*===========================================================================
   Design
